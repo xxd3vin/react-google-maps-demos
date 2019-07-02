@@ -7,11 +7,11 @@ import {
   Marker
 } from "react-google-maps";
 
-const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-
 const MyMapComponent = compose(
   withProps(ownerProps => ({
-    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`,
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${
+      ownerProps.apiKey
+    }&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px` }} />,
     mapElement: <div style={{ height: `100%` }} />
@@ -21,7 +21,10 @@ const MyMapComponent = compose(
 )(props => (
   <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
     {props.isMarkerShown && (
-      <Marker position={{ lat: -34.397, lng: 150.644 }} />
+      <Marker
+        position={{ lat: -34.397, lng: 150.644 }}
+        onClick={props.onMarkerClick}
+      />
     )}
   </GoogleMap>
 ));
