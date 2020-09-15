@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Marker } from "react-google-maps";
-import MyMapComponent from "./MyMapComponent";
-
-const blueIcon =
-  "https://mt.google.com/vt/icon?color=ff004C13&name=icons/spotlight/spotlight-waypoint-blue.png";
+import GoogleMap from "./GoogleMap";
+import { simpleMarker } from "./markers";
 
 function App(props) {
   const [isMarkerShown, setIsMarkerShown] = useState(false);
@@ -29,38 +26,15 @@ function App(props) {
     return <div>Please fill your Google Maps API key in .env file</div>;
   }
 
-  const markers = [
-    {
-      position /* LatLngLiteral */: { lat: -34.597, lng: 150.644 },
-      icon /* Icon */: {
-        anchor: { x: 0, y: 0 },
-        labelOrigin: { x: 0, y: 0 },
-        // origin: {x:0,y:0},
-        // scaledSize: ?,
-        // size: ?,
-        url: blueIcon
-      },
-      label /* MarkerLabel */: {
-        // color: '',
-        // fontFamily: '',
-        fontSize: "14px",
-        fontWeight: "bold",
-        text: "Foo"
-      }
-    }
-  ];
-
   return (
     <div className="App">
-      <MyMapComponent
-        apiKey={apiKey}
+      <GoogleMap
         isMarkerShown={isMarkerShown}
+        defaultZoom={16}
+        defaultCenter={{ lat: 39.871446, lng: 116.215768 }}
+        markers={[simpleMarker]}
         onMarkerClick={handleMarkerClick}
-      >
-        {markers.map((markerProps, index) => (
-          <Marker key={index} {...markerProps} />
-        ))}
-      </MyMapComponent>
+      ></GoogleMap>
     </div>
   );
 }

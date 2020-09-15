@@ -18,6 +18,7 @@ $ yarn && yarn start
 
 ## References
 
+- react-google-maps - [https://tomchentw.github.io/react-google-maps](https://tomchentw.github.io/react-google-maps)
 - Icons
   - https://mts.googleapis.com/vt/icon/name=icons/spotlight/spotlight-waypoint-a.png&text=a&psize=13&font=fonts/Roboto-Regular.ttf&color=ff333333&ax=44&ay=48&scale=1
   - https://stackoverflow.com/questions/8248077/google-maps-v3-standard-icon-shadow-names-equiv-of-g-default-icon-in-v2
