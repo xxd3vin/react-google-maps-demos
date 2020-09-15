@@ -10,6 +10,12 @@ Then save it to `.env` file like this:
 REACT_APP_GOOGLE_MAPS_API_KEY=123
 ```
 
+## Start the application
+
+```
+$ yarn && yarn start
+```
+
 ## References
 
 - Icons
