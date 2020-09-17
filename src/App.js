@@ -1,40 +1,24 @@
-import React, { useState, useEffect } from "react";
-import GoogleMap from "./GoogleMap";
-import { simpleMarker } from "./markers";
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App(props) {
-  const [isMarkerShown, setIsMarkerShown] = useState(false);
-
-  const delayedShowMarker = () => {
-    setTimeout(() => {
-      setIsMarkerShown(true);
-    }, 1000);
-  };
-
-  const handleMarkerClick = () => {
-    setIsMarkerShown(false);
-    delayedShowMarker();
-  };
-
-  useEffect(() => {
-    delayedShowMarker();
-    console.log("mount it!");
-  }, []);
-
-  const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-  if (!apiKey) {
-    return <div>Please fill your Google Maps API key in .env file</div>;
-  }
-
+function App() {
   return (
     <div className="App">
-      <GoogleMap
-        isMarkerShown={isMarkerShown}
-        defaultZoom={16}
-        defaultCenter={{ lat: 39.871446, lng: 116.215768 }}
-        markers={[simpleMarker]}
-        onMarkerClick={handleMarkerClick}
-      ></GoogleMap>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
